@@ -19,8 +19,8 @@ $ cd bxf_renderer && yarn install
 Launch the server:
 
 ```bash
-$ yarn build && node index.js
+$ yarn build && node index.js <input bxf file (YAML)> <output file (PNG)>
 ```
 
-The output is generated as "output.png" in the 'bxf_renderer' folder.
+The output is generated as "<output file (PNG)>", if provided, or "output.png" in the 'bxf_renderer' folder.
 
