@@ -1,6 +1,6 @@
 # BXF Renderer
 
-An application to render BXF schedule using React and create a PNG image using *puppeteer*.
+An application to render BXF schedule using **React** and create a PNG image using *puppeteer*.
 
 ## Development
 
@@ -16,7 +16,9 @@ $ git clone https://github.com/vinod-amagi/bxf_renderer.git
 $ cd bxf_renderer && yarn install
 ```
 
-Launch the server:
+## Create
+
+Render and create image:
 
 ```bash
 $ yarn build && node index.js <input bxf file (YAML)> <output file (PNG)>
