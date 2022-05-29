@@ -1,7 +1,6 @@
 import yaml from 'js-yaml';
 import fs from 'fs/promises';
 import ssr from './src/server'
-import data from './assets/data.json'
 import { schedule } from './src/schedule/features/schedule/Actions/sampleSchedule'
 import template from './src/template'
 import createSVG from './puppeteer'
@@ -13,7 +12,7 @@ async function createHtmlContent() {
   let initialState = {
     app: {
       isFetching: false,
-      apps: data
+      apps: {}
     },
     schedule: doc
   }
