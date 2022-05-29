@@ -7,7 +7,7 @@ An application to render BXF schedule using React and create a PNG image using *
 - Clone the repo:
 
 ```bash
-$ git clone <tbd>
+$ git clone https://github.com/vinod-amagi/bxf_renderer.git
 ```
 
 - Go to the project directory and install dependencies:
