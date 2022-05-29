@@ -10,10 +10,6 @@ async function createHtmlContent() {
   const doc = yaml.load(schedule);
 
   let initialState = {
-    app: {
-      isFetching: false,
-      apps: {}
-    },
     schedule: doc
   }
 
@@ -22,20 +18,25 @@ async function createHtmlContent() {
   const js = await fs.readFile('assets/client.js')
 
   const htmlContent = template("Schedule", preloadedState, content, js)
-  await fs.writeFile("./out.html", htmlContent)
+  
+  // Save html content for debugging
+  await fs.writeFile("./output.html", htmlContent)
+
+  return htmlContent
 }
 
 
-async function convertHtmlToSVG() {
-  const filename = "./out.html"
-  const data = await fs.readFile(filename)
-  createSVG(data.toString())
+async function convertHtmlToSVG(htmlContent) {
+  createSVG(htmlContent)
 }
 
 async function domToSVG() {
-  await createHtmlContent()
-  await convertHtmlToSVG()
+  const htmlContent = await createHtmlContent()
+  await convertHtmlToSVG(htmlContent)
 }
+
+const args = process.argv.slice(2);
+console.log('args: ', args);
 
 domToSVG()
 
