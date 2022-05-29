@@ -6,8 +6,8 @@ import template from './src/template'
 import createSVG from './puppeteer'
 //import createSVG from './canvas'
 
-async function createHtmlContent() {
-  const doc = yaml.load(schedule);
+async function createHtmlContent(inputFile) {
+  const doc = inputFile ? yaml.load(await fs.readFile(inputFile)) : yaml.load(schedule);
 
   let initialState = {
     schedule: doc
@@ -26,17 +26,17 @@ async function createHtmlContent() {
 }
 
 
-async function convertHtmlToSVG(htmlContent) {
-  createSVG(htmlContent)
+async function convertHtmlToSVG(htmlContent, outputFile) {
+  createSVG(htmlContent, outputFile)
 }
 
-async function domToSVG() {
-  const htmlContent = await createHtmlContent()
-  await convertHtmlToSVG(htmlContent)
+async function domToSVG(inputFile, outputFile) {
+  const htmlContent = await createHtmlContent(inputFile)
+  await convertHtmlToSVG(htmlContent, outputFile)
 }
 
 const args = process.argv.slice(2);
 console.log('args: ', args);
 
-domToSVG()
+domToSVG(args.length > 0 ? args[0] : null, args.length > 1 ? args[1] : "bxf.png")
 

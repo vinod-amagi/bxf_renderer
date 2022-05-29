@@ -7,3 +7,4 @@ assets/bundle.js
 assets/client.js
 assets/runtime.js
 output.html
+*.png

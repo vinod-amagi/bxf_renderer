@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import 'regenerator-runtime/runtime'
 import fs from "fs"
 
- async function createSVG (html = "") {
+ async function createSVG (html = "", outputFile) {
   const browser = await  puppeteer.launch();
   const page =  await browser.newPage();
   await page.setViewport({
@@ -33,7 +33,7 @@ import fs from "fs"
   await page.close();
   await browser.close();
 
-  fs.writeFile("./output.png", imageBuffer, () => {
+  fs.writeFile(outputFile, imageBuffer, () => {
       
   })
 
