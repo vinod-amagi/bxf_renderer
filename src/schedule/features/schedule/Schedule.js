@@ -12,8 +12,8 @@ const styles = theme => ({
   root: {
   },
   paper:{
-    minHeight: "60vh",
-    width: "200vh",
+    width: "250vh",
+    height: "60vh",
     backgroundColor: "#f0f0f0",
     padding: "40px 25px"
   },

@@ -5,6 +5,10 @@ import fs from "fs"
  async function createSVG (html = "") {
   const browser = await  puppeteer.launch();
   const page =  await browser.newPage();
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+  });
 
   await page.setContent(html, {
 		waitUntil: 'domcontentloaded'
@@ -21,8 +25,8 @@ import fs from "fs"
     clip: {
       x: box.x,
       y: box.y,
-      width: Math.min(box.width, page.viewport().width),
-      height: Math.min(box.height, page.viewport().height),
+      width: box.width,
+      height: box.height,
     }
   });
 

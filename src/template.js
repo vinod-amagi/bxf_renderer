@@ -25,7 +25,7 @@ export default function template(title, initialState = {}, content = "", js = ""
                 
               </head>
               <body>
-                <div id="app" class="wrap-inner">
+                <div id="app">
                   ${content}
                 </div>
                   ${scripts}
