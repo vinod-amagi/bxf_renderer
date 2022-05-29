@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchAppsIfNeeded } from '../redux/actions'
-
-import Card from './card'
-import SApp from '../schedule/App'
 import Schedule from '../schedule/features/schedule/Schedule'
 
 class App extends Component {
