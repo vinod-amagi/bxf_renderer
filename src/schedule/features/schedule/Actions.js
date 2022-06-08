@@ -31,9 +31,13 @@ export const Actions = (props) => {
     }
 
     const start = scheduleStartTime(props.schedule)
-
+    console.log(JSON.stringify(props.schedule))
+    const actions = props.schedule.state ? props.schedule.state.actions : props.schedule.actions
+    if (!actions) {
+        return <div/>
+    }
     return <div>
-        {props.schedule.actions.map((action) => (
+        {actions.map((action) => (
             <Grid style={{ width: "max-content" }} container direction="column" spacing={0} key={action}>
                 <Grid item style={{ marginLeft: getLengthForMilliseconds(actionTime(action) - start) }}>
                     <ArrowUpward />
